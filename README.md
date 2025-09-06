@@ -1,13 +1,13 @@
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/yyle88/sortslice/release.yml?branch=main&label=BUILD)](https://github.com/yyle88/sortslice/actions/workflows/release.yml?query=branch%3Amain)
-[![GoDoc](https://pkg.go.dev/badge/github.com/yyle88/sortslice)](https://pkg.go.dev/github.com/yyle88/sortslice)
-[![Coverage Status](https://img.shields.io/coveralls/github/yyle88/sortslice/master.svg)](https://coveralls.io/github/yyle88/sortslice?branch=main)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/yyle88/sortx/release.yml?branch=main&label=BUILD)](https://github.com/yyle88/sortx/actions/workflows/release.yml?query=branch%3Amain)
+[![GoDoc](https://pkg.go.dev/badge/github.com/yyle88/sortx)](https://pkg.go.dev/github.com/yyle88/sortx)
+[![Coverage Status](https://img.shields.io/coveralls/github/yyle88/sortx/master.svg)](https://coveralls.io/github/yyle88/sortx?branch=main)
 ![Supported Go Versions](https://img.shields.io/badge/Go-1.22%2C%201.23-lightgrey.svg)
-[![GitHub Release](https://img.shields.io/github/release/yyle88/sortslice.svg)](https://github.com/yyle88/sortslice/releases)
-[![Go Report Card](https://goreportcard.com/badge/github.com/yyle88/sortslice)](https://goreportcard.com/report/github.com/yyle88/sortslice)
+[![GitHub Release](https://img.shields.io/github/release/yyle88/sortx.svg)](https://github.com/yyle88/sortx/releases)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yyle88/sortx)](https://goreportcard.com/report/github.com/yyle88/sortx)
 
-# sortslice
+# sortx
 
-`sortslice` is a Go package that provides a simple and flexible way to sort slices using custom comparison functions. It leverages Go's generics and the `sort.Interface` to avoid repeating the implementation of sorting logic for different types.
+`sortx` is a Go package that provides a simple and flexible way to sort slices using custom comparison functions. It leverages Go's generics and the `sort.Interface` to avoid repeating the implementation of sorting logic for different types.
 
 ## CHINESE README
 
@@ -15,10 +15,10 @@
 
 ## Installation
 
-To install the `sortslice` package, you can use the following command:
+To install the `sortx` package, you can use the following command:
 
 ```bash
-go get github.com/yyle88/sortslice
+go get github.com/yyle88/sortx
 ```
 
 ## Usage
@@ -30,7 +30,7 @@ The package offers several functions for sorting slices with different compariso
 Sorts the slice `a` using an index-based comparison function `iLess`.
 
 ```go
-sortslice.SortByIndex(a []V, iLess func(i, j int) bool)
+sortx.SortByIndex(a []V, iLess func(i, j int) bool)
 ```
 
 - `a`: The slice to be sorted.
@@ -42,7 +42,7 @@ sortslice.SortByIndex(a []V, iLess func(i, j int) bool)
 Sorts the slice `a` using a value-based comparison function `vLess`.
 
 ```go
-sortslice.SortByValue(a []V, vLess func(a, b V) bool)
+sortx.SortByValue(a []V, vLess func(a, b V) bool)
 ```
 
 - `a`: The slice to be sorted.
@@ -54,7 +54,7 @@ sortslice.SortByValue(a []V, vLess func(a, b V) bool)
 Sorts the slice `a` using an index-based comparison function `iLess` and preserves the order of equal elements (stable sort).
 
 ```go
-sortslice.SortIStable(a []V, iLess func(i, j int) bool)
+sortx.SortIStable(a []V, iLess func(i, j int) bool)
 ```
 
 - `a`: The slice to be sorted.
@@ -66,7 +66,7 @@ sortslice.SortIStable(a []V, iLess func(i, j int) bool)
 Sorts the slice `a` using a value-based comparison function `vLess` and preserves the order of equal elements (stable sort).
 
 ```go
-sortslice.SortVStable(a []V, vLess func(a, b V) bool)
+sortx.SortVStable(a []V, vLess func(a, b V) bool)
 ```
 
 - `a`: The slice to be sorted.
@@ -82,20 +82,20 @@ package main
 
 import (
 	"fmt"
-	"github.com/yyle88/sortslice"
+	"github.com/yyle88/sortx"
 )
 
 func main() {
 	// Example 1: Sorting by index
 	numbers := []int{5, 3, 8, 1, 4}
-	sortslice.SortByIndex(numbers, func(i, j int) bool {
+	sortx.SortByIndex(numbers, func(i, j int) bool {
 		return numbers[i] < numbers[j] // Compare by values at indices
 	})
 	fmt.Println("Sorted by index:", numbers)
 
 	// Example 2: Sorting by value
 	strings := []string{"apple", "banana", "cherry", "date"}
-	sortslice.SortByValue(strings, func(a, b string) bool {
+	sortx.SortByValue(strings, func(a, b string) bool {
 		return a < b // Compare by string values
 	})
 	fmt.Println("Sorted by value:", strings)
@@ -143,4 +143,4 @@ Give me stars. Thank you!!!
 
 ## GitHub Stars
 
-[![starring](https://starchart.cc/yyle88/sortslice.svg?variant=adaptive)](https://starchart.cc/yyle88/sortslice)
+[![starring](https://starchart.cc/yyle88/sortx.svg?variant=adaptive)](https://starchart.cc/yyle88/sortx)

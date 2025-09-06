@@ -1,4 +1,4 @@
-package sortslice
+package sortx
 
 import (
 	"testing"

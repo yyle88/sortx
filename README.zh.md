@@ -1,17 +1,17 @@
-# sortslice
+# sortx
 
-`sortslice` 是一个 Go 包，它提供了一种简单灵活的方式来使用自定义比较函数对切片进行排序。它利用了 Go 的泛型和 `sort.Interface`，避免了为不同类型重复实现排序逻辑。
+`sortx` 是一个 Go 包，它提供了一种简单灵活的方式来使用自定义比较函数对切片进行排序。它利用了 Go 的泛型和 `sort.Interface`，避免了为不同类型重复实现排序逻辑。
 
 ## 英文文档
 
-[English README](README.md)
+[ENGLISH README](README.md)
 
 ## 安装
 
-要安装 `sortslice` 包，可以使用以下命令：
+要安装 `sortx` 包，可以使用以下命令：
 
 ```bash
-go get github.com/yyle88/sortslice
+go get github.com/yyle88/sortx
 ```
 
 ## 使用
@@ -23,7 +23,7 @@ go get github.com/yyle88/sortslice
 使用基于索引的比较函数 `iLess` 对切片 `a` 进行排序。
 
 ```go
-sortslice.SortByIndex(a []V, iLess func(i, j int) bool)
+sortx.SortByIndex(a []V, iLess func(i, j int) bool)
 ```
 
 - `a`: 要排序的切片。
@@ -35,7 +35,7 @@ sortslice.SortByIndex(a []V, iLess func(i, j int) bool)
 使用基于值的比较函数 `vLess` 对切片 `a` 进行排序。
 
 ```go
-sortslice.SortByValue(a []V, vLess func(a, b V) bool)
+sortx.SortByValue(a []V, vLess func(a, b V) bool)
 ```
 
 - `a`: 要排序的切片。
@@ -47,7 +47,7 @@ sortslice.SortByValue(a []V, vLess func(a, b V) bool)
 使用基于索引的比较函数 `iLess` 对切片 `a` 进行排序，并保持相等元素的原始顺序（稳定排序）。
 
 ```go
-sortslice.SortIStable(a []V, iLess func(i, j int) bool)
+sortx.SortIStable(a []V, iLess func(i, j int) bool)
 ```
 
 - `a`: 要排序的切片。
@@ -59,7 +59,7 @@ sortslice.SortIStable(a []V, iLess func(i, j int) bool)
 使用基于值的比较函数 `vLess` 对切片 `a` 进行排序，并保持相等元素的原始顺序（稳定排序）。
 
 ```go
-sortslice.SortVStable(a []V, vLess func(a, b V) bool)
+sortx.SortVStable(a []V, vLess func(a, b V) bool)
 ```
 
 - `a`: 要排序的切片。
@@ -75,20 +75,20 @@ package main
 
 import (
 	"fmt"
-	"github.com/yyle88/sortslice"
+	"github.com/yyle88/sortx"
 )
 
 func main() {
 	// 示例 1：按索引排序
 	numbers := []int{5, 3, 8, 1, 4}
-	sortslice.SortByIndex(numbers, func(i, j int) bool {
+	sortx.SortByIndex(numbers, func(i, j int) bool {
 		return numbers[i] < numbers[j] // 按索引处的值进行比较
 	})
 	fmt.Println("按索引排序:", numbers)
 
 	// 示例 2：按值排序
 	strings := []string{"apple", "banana", "cherry", "date"}
-	sortslice.SortByValue(strings, func(a, b string) bool {
+	sortx.SortByValue(strings, func(a, b string) bool {
 		return a < b // 按字符串值进行比较
 	})
 	fmt.Println("按值排序:", strings)

@@ -1,10 +1,10 @@
-module github.com/yyle88/sortslice
+module github.com/yyle88/sortx
 
 go 1.22.6
 
 require (
 	github.com/pkg/errors v0.9.1
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.1
 )
 
 require (
@@ -16,4 +16,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-retract [v1.0.0, v1.0.1] // rename repo-name
+retract (
+	[v1.0.2, v1.0.8] // rename repo-name
+	[v1.0.0, v1.0.1] // rename repo-name
+)
